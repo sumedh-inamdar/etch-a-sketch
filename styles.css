@@ -3,12 +3,57 @@ html {
 }
 body {
     height: 100%;
+    width: 100%;
+    background:rgb(135, 97, 224);
     margin: 0;
 }
-.gridContainer {
+
+footer {
+    height: 30px;
+    width: inherit;
+    background: yellow;
+    position: absolute;
+    bottom: 0;
+    left:0;
+}
+main {
     height: 100%;
+    width: 100%;
+    background: rgb(70, 212, 255);
+}
+
+/* main */
+.borderContainer {
+    margin: 0 auto;
+    width: 80vw;
+    height: 64vw;
+    max-width: 1000px;
+    max-height: 800px;
+    background: red;
+    border-radius: 15px;
+
+}
+.header {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: min(6vw, 64px);
+    color: rgb(255, 233, 35);
+}
+.gridContainer {
+    width: 71%;
+    height: 63%;
+    margin: 0 auto;
+    position: relative;
+    
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
     background: lightgray;
+}
+
+/* left and right buttons */
+.clearGrid {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 5vw;
 }
