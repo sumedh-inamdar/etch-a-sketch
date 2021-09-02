@@ -24,13 +24,16 @@ main {
 
 /* main */
 .borderContainer {
-    margin: 0 auto;
+    position: relative;
+    top: 10px;
+    margin: auto;
     width: 80vw;
     height: 64vw;
     max-width: 1000px;
     max-height: 800px;
     background: red;
     border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.84) 0px 3px 8px;
 
 }
 .header {
@@ -44,16 +47,29 @@ main {
     height: 63%;
     margin: 0 auto;
     position: relative;
-    
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
     background: lightgray;
+    box-shadow: rgba(0, 0, 0, 0.96) 0px 0px 4px 4px inset;
+    border-radius: 15px;
 }
 
 /* left and right buttons */
 .clearGrid {
-    height: 5vw;
-    width: 5vw;
-    border-radius: 5vw;
+    height: min(10vw, 125px);
+    width: min(10vw, 125px);
+    border-radius: min(5vw, 62.5px);
+    font-family: 'Pacifico', cursive;
+    font-size: min(2.5vw, 32px);
+}
+.leftButton {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.rightButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
