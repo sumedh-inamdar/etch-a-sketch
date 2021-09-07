@@ -48,11 +48,24 @@ main {
     margin: 0 auto;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
-    background: lightgray;
-    box-shadow: rgba(0, 0, 0, 0.96) 0px 0px 4px 4px inset;
+    grid-gap: 2px;
+    background: rgb(60, 60, 60);
     border-radius: 15px;
+    overflow: hidden;
+    
+}
+.square {
+    background: rgb(225, 225, 225);
+}
+.shadow {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    box-shadow: rgba(119, 35, 35, 0.96) 0px 0px 4px 4px inset;
+    border-radius: 15px;
+    pointer-events: none;
 }
 
 /* left and right buttons */
