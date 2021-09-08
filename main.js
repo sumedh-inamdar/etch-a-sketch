@@ -47,6 +47,7 @@ createGrid(initalGridSize);
 
 
 squaresInput.addEventListener('change', e => {
-    changeSquareGrid(e.target.value);
+    const newGridSize = e.target.value < 16 ? 16 : e.target.value > 100 ? 100 : e.target.value;
+    changeSquareGrid(newGridSize);
 });
 
