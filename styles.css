@@ -39,17 +39,23 @@ main {
 }
 .header {
     flex: 1 1 auto;
-    text-align: center;
-    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    
+}
+.header p {
     font-family: 'Pacifico', cursive;
-    font-size: min(10vw, 64px);
+    font-size: 64px;
+    margin: 0;
     color: rgb(255, 233, 35);
 }
 .gridContainer {
     flex: 1 1 auto;
     width: 700px;
     max-width: 100vw;
-    height: 800px;
+    height: 491px;
     margin: 0 auto;
     position: relative;
     display: grid;
@@ -76,7 +82,8 @@ main {
 /* bottom container */
 .bottomContainer {
   display: flex;
-  height: 100%;
+  flex: 1 1 auto;
+  /* height: 100%; */
   /* align-items: center; */
 }
 .leftButton, .rightButton{
@@ -88,13 +95,52 @@ main {
 .gridInput, .modeSelect {
   flex: 1 1 auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .rightButton {
   flex: 1 1 auto;
-  justify-content: right;
+  justify-content: flex-end;
 }
+
+/* grid input styling */
+.gridInput {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: rgb(255, 233, 35);
+}
+
+.gridInput label{
+  padding: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.gridInput #squares {
+  border-radius: 15px;
+  font: inherit;
+  width: 150px;
+  text-align: center;
+}
+
+/* Mode select styling */
+.modeSelect {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: rgb(255, 233, 35);
+}
+
 
 /* clear button styling */
 .clearGrid {

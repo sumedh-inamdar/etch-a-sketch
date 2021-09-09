@@ -4,7 +4,7 @@ const initalGridSize = 16;
 
 //setup element nodes
 const gridContainerNode = document.querySelector('.gridContainer');
-const clearButton = document.querySelector('.clearGrid');
+const clearButtons = document.querySelectorAll('.clearGrid');
 const squaresInput = document.querySelector('#squares');
 
 
@@ -51,6 +51,11 @@ squaresInput.addEventListener('change', e => {
     const newGridSize = e.target.value < 16 ? 16 : e.target.value > 100 ? 100 : e.target.value;
     changeSquareGrid(newGridSize);
 });
+
+clearButtons.forEach(button => button.addEventListener('click', () => {
+    removeGrid();
+    createGrid(squaresInput.value);
+}));
 
 //inital setup
 createGrid(initalGridSize);
