@@ -18,15 +18,29 @@
             <div class="gridContainer">
                 <div class="shadow"></div>
             </div>
-            <div class="leftButton">
-                <button class="clearGrid">Clear</button>
-            </div>
-            <input type="number" value="16" max="100" min="16" id="squares">
-            <label for="squares"># of squares per side</label>
-            
-            <div class="rightButton">
-                <button class="clearGrid">Clear</button>
-            </div>
+            <div class="bottomContainer">
+                <div class="leftButton">
+                    <button class="clearGrid">Clear</button>
+                </div>
+                <div class="gridInput">
+                    <input type="number" value="16" max="100" min="16" id="squares">
+                    <label for="squares"># of squares per side</label>
+                </div>
+                <div class="modeSelect">
+                    <p>Etch Mode</p>
+                    <div>
+                        <input type="radio" id="classic" name="mode" checked>
+                        <label for="classic">Classic</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="color" name="mode">
+                        <label for="color">Color</label>
+                    </div>
+                </div>
+                <div class="rightButton">
+                    <button class="clearGrid">Clear</button>
+                </div>
+            </div>  
         </div>
     </main>
     <footer>

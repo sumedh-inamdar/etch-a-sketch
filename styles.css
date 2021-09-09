@@ -26,25 +26,30 @@ main {
 .borderContainer {
     position: relative;
     top: 10px;
+    display: flex;
+    flex-direction: column;
     margin: auto;
-    width: 80vw;
-    height: 64vw;
     max-width: 1000px;
-    max-height: 800px;
+    height: 800px;
+    /* flex: 1 1 auto; */
     background: red;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.84) 0px 3px 8px;
 
 }
 .header {
+    flex: 1 1 auto;
     text-align: center;
+    height: 180px;
     font-family: 'Pacifico', cursive;
-    font-size: min(6vw, 64px);
+    font-size: min(10vw, 64px);
     color: rgb(255, 233, 35);
 }
 .gridContainer {
-    width: 71%;
-    height: 63%;
+    flex: 1 1 auto;
+    width: 700px;
+    max-width: 100vw;
+    height: 800px;
     margin: 0 auto;
     position: relative;
     display: grid;
@@ -68,21 +73,35 @@ main {
     pointer-events: none;
 }
 
-/* left and right buttons */
-.clearGrid {
-    height: min(10vw, 125px);
-    width: min(10vw, 125px);
-    border-radius: min(5vw, 62.5px);
-    font-family: 'Pacifico', cursive;
-    font-size: min(2.5vw, 32px);
+/* bottom container */
+.bottomContainer {
+  display: flex;
+  height: 100%;
+  /* align-items: center; */
 }
-.leftButton {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.leftButton, .rightButton{
+  flex: 1 1 auto;
+  display: flex;
+  align-items:flex-end;
 }
+
+.gridInput, .modeSelect {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}
+
 .rightButton {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+  flex: 1 1 auto;
+  justify-content: right;
 }
+
+/* clear button styling */
+.clearGrid {
+    height: 125px;
+    width: 125px;
+    border-radius: 62.5px;
+    font-family: 'Pacifico', cursive;
+    font-size: 32px;
+}
+
