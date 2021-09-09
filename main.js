@@ -1,11 +1,14 @@
 
 //inital setup values
 const initalGridSize = 16;
+let mode = 'classic';
 
 //setup element nodes
 const gridContainerNode = document.querySelector('.gridContainer');
 const clearButtons = document.querySelectorAll('.clearGrid');
 const squaresInput = document.querySelector('#squares');
+const classicSelect = document.querySelector('#classic');
+const colorSelect = document.querySelector('#color');
 
 
 function createGrid(numSquares) {
@@ -17,16 +20,22 @@ function createGrid(numSquares) {
     for (let i=0; i < Math.pow(numSquares, 2); i++) {
         const squareNode = document.createElement('div');
         squareNode.classList.add('square');
-        addMouseoverEffect_OG(squareNode); //detect which mode is selected (original or colorful)
-        
+        if (mode === 'classic') {
+            addMouseoverEffect_OG(squareNode);
+        } else {
+            addMouseoverEffect_color(squareNode);
+        }
         gridContainerNode.appendChild(squareNode);
     }
     
 }
 
+function getSquaresList() {
+    return document.querySelectorAll('.square');
+}
+
 function removeGrid() {
-    const squareList = document.querySelectorAll('.square');
-    squareList.forEach(square => square.remove());
+    getSquaresList().forEach(square => square.remove());
 }
 
 function changeSquareGrid(numSquares) {
@@ -35,10 +44,20 @@ function changeSquareGrid(numSquares) {
 }
 
 function addMouseoverEffect_OG(squareNode) {
-    squareNode.addEventListener("mouseover", () => {
-        let currentColor = getComputedStyle(squareNode).backgroundColor;
-        squareNode.style.backgroundColor = darkenColor(currentColor, 25);
-    } )
+    squareNode.addEventListener("mouseover", handleMouse_OG);
+}
+
+function handleMouse_OG(event) {
+    let currentColor = getComputedStyle(event.target).backgroundColor;
+    event.target.style.backgroundColor = darkenColor(currentColor, 25);
+}
+
+function addMouseoverEffect_color(squareNode) {
+    squareNode.addEventListener("mouseover", handleMouse_color);
+}
+
+function handleMouse_color(event) {
+    event.target.style.backgroundColor = 'blue';
 }
 
 function darkenColor(col, amt) {
@@ -57,7 +76,31 @@ clearButtons.forEach(button => button.addEventListener('click', () => {
     createGrid(squaresInput.value);
 }));
 
+classicSelect.addEventListener('click', () => {
+    if (mode !== 'classic') {
+        mode = 'classic';
+        getSquaresList().forEach(square => {
+            square.removeEventListener('mouseover', handleMouse_color);
+            addMouseoverEffect_OG(square);
+        })
+        console.log('Classic Selected')
+    }
+});
+
+colorSelect.addEventListener('click', () => {
+    if (mode !== 'color') {
+        mode = 'color';
+        getSquaresList().forEach(square => {
+            square.removeEventListener('mouseover', handleMouse_OG);
+            addMouseoverEffect_color(square);
+        })
+        console.log('Color Selected')    
+    }
+    
+});
+
 //inital setup
+console.log('Start');
 createGrid(initalGridSize);
 
 
