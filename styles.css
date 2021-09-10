@@ -32,7 +32,7 @@ main {
     max-width: 1000px;
     height: 800px;
     /* flex: 1 1 auto; */
-    background: red;
+    background: rgb(255, 0, 0);
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.84) 0px 3px 8px;
 
@@ -150,4 +150,5 @@ input[type=number] {
     font-family: 'Pacifico', cursive;
     font-size: 32px;
 }
+
 

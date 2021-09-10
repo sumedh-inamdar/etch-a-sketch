@@ -1,7 +1,7 @@
 
 //inital setup values
 const initalGridSize = 16;
-let mode = 'classic';
+let mode = 'classic'; //assume classic as default and update before creating grid
 
 //setup element nodes
 const gridContainerNode = document.querySelector('.gridContainer');
@@ -10,6 +10,15 @@ const squaresInput = document.querySelector('#squares');
 const classicSelect = document.querySelector('#classic');
 const colorSelect = document.querySelector('#color');
 
+function updateMode() {
+    if (classicSelect.checked) {
+        mode = 'classic';
+    } else if (colorSelect.checked) {
+        mode = 'color';
+    } else {
+        mode = 'invalid';
+    }
+}
 
 function createGrid(numSquares) {
     
@@ -48,7 +57,13 @@ function addMouseoverEffect_OG(squareNode) {
 }
 
 function handleMouse_OG(event) {
-    let currentColor = getComputedStyle(event.target).backgroundColor;
+    let currentColor;
+    if (event.target.classList.contains('color')) {
+        currentColor = 'rgb(225, 225, 225)'; // change cell to original light color
+        event.target.classList.remove('color');
+    } else {
+        currentColor = getComputedStyle(event.target).backgroundColor;
+    }
     event.target.style.backgroundColor = darkenColor(currentColor, 25);
 }
 
@@ -57,7 +72,12 @@ function addMouseoverEffect_color(squareNode) {
 }
 
 function handleMouse_color(event) {
-    event.target.style.backgroundColor = 'blue';
+    let red = Math.floor(Math.random()*256);
+    let green = Math.floor(Math.random()*256);
+    let blue = Math.floor(Math.random()*256);
+    event.target.classList.add('color');
+    
+    event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 }
 
 function darkenColor(col, amt) {
@@ -77,30 +97,28 @@ clearButtons.forEach(button => button.addEventListener('click', () => {
 }));
 
 classicSelect.addEventListener('click', () => {
-    if (mode !== 'classic') {
-        mode = 'classic';
+    if (mode !== 'classic') { //enter only if mode has changed
+        updateMode();
         getSquaresList().forEach(square => {
             square.removeEventListener('mouseover', handleMouse_color);
             addMouseoverEffect_OG(square);
         })
-        console.log('Classic Selected')
     }
 });
 
 colorSelect.addEventListener('click', () => {
-    if (mode !== 'color') {
-        mode = 'color';
+    if (mode !== 'color') { //enter only if mode has changed
+        updateMode();
         getSquaresList().forEach(square => {
             square.removeEventListener('mouseover', handleMouse_OG);
             addMouseoverEffect_color(square);
         })
-        console.log('Color Selected')    
     }
     
 });
 
-//inital setup
-console.log('Start');
+//start up sequence
+updateMode();
 createGrid(initalGridSize);
 
 
