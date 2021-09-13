@@ -2,34 +2,26 @@ html {
     height: 100%;
 }
 body {
-    height: 100%;
+    position: relative;
+    min-height: 99vh;
     width: 100%;
-    background:rgb(135, 97, 224);
+    background: rgb(70, 212, 255);
     margin: 0;
 }
 
-footer {
-    height: 30px;
-    width: inherit;
-    background: yellow;
-    position: absolute;
-    bottom: 0;
-    left:0;
-}
 main {
-    height: 100%;
-    width: 100%;
-    background: rgb(70, 212, 255);
+    padding-bottom: 3rem;
+    margin-top: 10px;
 }
 
 /* main */
 .borderContainer {
     position: relative;
-    top: 10px;
     display: flex;
     flex-direction: column;
     margin: auto;
     max-width: 1000px;
+    min-width: 700px;
     height: 800px;
     /* flex: 1 1 auto; */
     background: rgb(255, 0, 0);
@@ -54,7 +46,6 @@ main {
 .gridContainer {
     flex: 1 1 auto;
     width: 700px;
-    max-width: 100vw;
     height: 491px;
     margin: 0 auto;
     position: relative;
@@ -151,4 +142,21 @@ input[type=number] {
     font-size: 32px;
 }
 
-
+/* Footer */
+footer {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2rem;
+}
+footer input {
+  display: inline;
+  height: 20px;
+  transition: transform 1s;
+}
+footer input:hover {
+  transform: scale(3) translate(0, -5px);
+}

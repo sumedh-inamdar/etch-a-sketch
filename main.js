@@ -9,6 +9,7 @@ const clearButtons = document.querySelectorAll('.clearGrid');
 const squaresInput = document.querySelector('#squares');
 const classicSelect = document.querySelector('#classic');
 const colorSelect = document.querySelector('#color');
+const year = document.querySelector('#year');
 
 function updateMode() {
     if (classicSelect.checked) {
@@ -120,5 +121,6 @@ colorSelect.addEventListener('click', () => {
 //start up sequence
 updateMode();
 createGrid(initalGridSize);
+year.textContent = new Date().getFullYear();
 
 
