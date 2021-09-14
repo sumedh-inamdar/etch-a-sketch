@@ -1,6 +1,7 @@
 html {
     height: 100%;
 }
+
 body {
     position: relative;
     min-height: 99vh;
@@ -14,7 +15,6 @@ main {
     margin-top: 10px;
 }
 
-/* main */
 .borderContainer {
     position: relative;
     display: flex;
@@ -23,26 +23,26 @@ main {
     max-width: 1000px;
     min-width: 700px;
     height: 800px;
-    /* flex: 1 1 auto; */
     background: rgb(255, 0, 0);
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.84) 0px 3px 8px;
-
 }
+
 .header {
     flex: 1 1 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100px;
-    
 }
+
 .header p {
     font-family: 'Pacifico', cursive;
     font-size: 64px;
     margin: 0;
     color: rgb(255, 233, 35);
 }
+
 .gridContainer {
     flex: 1 1 auto;
     width: 700px;
@@ -54,33 +54,47 @@ main {
     background: rgb(60, 60, 60);
     border-radius: 15px;
     overflow: hidden;
-    
 }
+
+.shadow {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  box-shadow: rgba(119, 35, 35, 0.96) 0px 0px 4px 4px inset;
+  border-radius: 15px;
+  pointer-events: none;
+}
+
 .square {
     background: rgb(225, 225, 225);
 }
-.shadow {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    box-shadow: rgba(119, 35, 35, 0.96) 0px 0px 4px 4px inset;
-    border-radius: 15px;
-    pointer-events: none;
-}
 
-/* bottom container */
 .bottomContainer {
   display: flex;
   flex: 1 1 auto;
-  /* height: 100%; */
-  /* align-items: center; */
 }
+
 .leftButton, .rightButton{
   flex: 1 1 auto;
   display: flex;
   align-items:flex-end;
+}
+
+.clearGrid {
+  height: 125px;
+  width: 125px;
+  border-radius: 62.5px;
+  font-family: 'Pacifico', cursive;
+  font-size: 32px;
+  background:rgb(225, 225, 225)
+}
+
+.clearGrid:hover {
+  background:rgb(255, 255, 255);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  cursor: pointer;
 }
 
 .gridInput, .modeSelect {
@@ -96,7 +110,6 @@ main {
   justify-content: flex-end;
 }
 
-/* grid input styling */
 .gridInput {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -108,6 +121,7 @@ main {
   padding: 10px;
 }
 
+/* Remove up/down buttons on text input */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -117,14 +131,21 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-.gridInput #squares {
+#squares {
   border-radius: 15px;
   font: inherit;
   width: 150px;
   text-align: center;
 }
 
-/* Mode select styling */
+#squares:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.7);
+}
+
+#squares:focus {
+  outline: none;
+}
+
 .modeSelect {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -132,17 +153,10 @@ input[type=number] {
   color: rgb(255, 233, 35);
 }
 
-
-/* clear button styling */
-.clearGrid {
-    height: 125px;
-    width: 125px;
-    border-radius: 62.5px;
-    font-family: 'Pacifico', cursive;
-    font-size: 32px;
+.modeSelect div :hover {
+  cursor: pointer;
 }
 
-/* Footer */
 footer {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -152,11 +166,13 @@ footer {
   width: 100%;
   height: 2rem;
 }
+
 footer input {
   display: inline;
   height: 20px;
   transition: transform 1s;
 }
+
 footer input:hover {
   transform: scale(3) translate(0, -5px);
 }
